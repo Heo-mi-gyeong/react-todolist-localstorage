@@ -1,0 +1,30 @@
+.sBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+}
+
+.sBox > h3 {
+    width:30%;
+    height: 25%;
+    transition: ease 0.5s;
+    padding: 10px 20px;
+    box-shadow: 3px 3px 10px #dddddd;
+    border-radius: 10px;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.remove {
+    color: darkgray;
+}
+
+.remove:hover{
+    color: black;
+    transform: rotate(10deg);
+    transition: all ease 0.5s;
+    cursor: pointer;
+}
