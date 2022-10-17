@@ -10,7 +10,7 @@ const ItemList = ({item,setItem}) => {
     const onClick = (e) => {
         e.preventDefault();
         if(!inputContent){
-            alert("일정을 입력해주세요!!");
+            alert("일정을 입력해주세요.");
             return;
         }
         setItem([...item, {id : cnt.current++, content : inputContent}]);
@@ -25,18 +25,28 @@ const ItemList = ({item,setItem}) => {
         )
     }
 
+    const modify = (targetId, targetContent) => {
+        const newItem = Object.assign(item);
+        newItem.map((data, i) => {
+            if(targetId === i && data.content) {
+                data.content = targetContent;
+            }
+        });
+        setItem(newItem);
+    }
+
   return (
     <div>
         <div className={styles.box}>
-        <form>
-            <input className={styles.inputBox} type={'text'} value={inputContent} onChange={e => setInputContent(e.target.value)} placeholder='일정을 입력하세요.'/>
-            <Button text={'등록'} onClick={onClick}/>
-        </form>
+            <form>
+                <input className={styles.inputBox} type={'text'} value={inputContent} onChange={e => setInputContent(e.target.value)} placeholder='일정을 입력하세요.'/>
+                <Button text={'등록'} onClick={onClick}/>
+            </form>
         </div>
         {
             item.map((it)=>{
                 return (
-                    <TodoItem key={it.id} it={it} onDelete={remove}/>
+                    <TodoItem key={it.id} it={it} onDelete={remove} onUpdate={modify}/>
                 )
             })
         }

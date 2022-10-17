@@ -1,12 +1,21 @@
 .inputBox{
-    width:300px;
+    width:33%;
     height:40px;
     padding-left: 10px;
+    border-radius: 10px;
+    border: 2px solid #aaaaaa;
 }
 
 .box {
+    width : 100%;
     margin-top: 50px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box > form{
     width : 100%;
     display: flex;
     justify-content: center;
